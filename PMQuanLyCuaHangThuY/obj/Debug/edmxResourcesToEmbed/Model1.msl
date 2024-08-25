@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dataQuanLyCuaHangThuYModelStoreContainer" CdmEntityContainer="dataQuanLyCuaHangThuYEntities2">
+    <FunctionImportMapping FunctionImportName="usp_BaoCaoCongNo" FunctionName="dataQuanLyCuaHangThuYModel.Store.usp_BaoCaoCongNo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dataQuanLyCuaHangThuYModel.usp_BaoCaoCongNo_Result">
+          <ScalarProperty Name="MADT" ColumnName="MADT" />
+          <ScalarProperty Name="NGAYHD" ColumnName="NGAYHD" />
+          <ScalarProperty Name="MAHD" ColumnName="MAHD" />
+          <ScalarProperty Name="PHAITHU" ColumnName="PHAITHU" />
+          <ScalarProperty Name="PHAITRA" ColumnName="PHAITRA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

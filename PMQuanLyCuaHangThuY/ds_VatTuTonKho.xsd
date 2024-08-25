@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_VatTuTonKho" targetNamespace="http://tempuri.org/ds_VatTuTonKho.xsd" xmlns:mstns="http://tempuri.org/ds_VatTuTonKho.xsd" xmlns="http://tempuri.org/ds_VatTuTonKho.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dataQuanLyCuaHangThuYConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dataQuanLyCuaHangThuYConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PMQuanLyCuaHangThuY.Properties.Settings.GlobalReference.Default.dataQuanLyCuaHangThuYConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TONKHODAUKYTableAdapter" GeneratorDataComponentClassName="TONKHODAUKYTableAdapter" Name="TONKHODAUKY" UserDataComponentName="TONKHODAUKYTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dataQuanLyCuaHangThuYConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT vt.MAVT, vt.DVT, ISNULL(dk.SOLUONG, 0) AS TON, dk.DONGIA, dk.THANHTIEN
+FROM     VATTU AS vt LEFT OUTER JOIN
+                  TONKHODAUKY AS dk ON vt.MAVT = dk.MAVT
+WHERE  (vt.isactive = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAVT" DataSetColumn="MAVT" />
+              <Mapping SourceColumn="DVT" DataSetColumn="DVT" />
+              <Mapping SourceColumn="DONGIA" DataSetColumn="DONGIA" />
+              <Mapping SourceColumn="THANHTIEN" DataSetColumn="THANHTIEN" />
+              <Mapping SourceColumn="TON" DataSetColumn="TON" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_VatTuTonKho" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ds_VatTuTonKho" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ds_VatTuTonKho">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TONKHODAUKY" msprop:Generator_RowEvHandlerName="TONKHODAUKYRowChangeEventHandler" msprop:Generator_RowDeletedName="TONKHODAUKYRowDeleted" msprop:Generator_RowDeletingName="TONKHODAUKYRowDeleting" msprop:Generator_RowEvArgName="TONKHODAUKYRowChangeEvent" msprop:Generator_TablePropName="TONKHODAUKY" msprop:Generator_RowChangedName="TONKHODAUKYRowChanged" msprop:Generator_UserTableName="TONKHODAUKY" msprop:Generator_RowChangingName="TONKHODAUKYRowChanging" msprop:Generator_RowClassName="TONKHODAUKYRow" msprop:Generator_TableClassName="TONKHODAUKYDataTable" msprop:Generator_TableVarName="tableTONKHODAUKY">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAVT" msprop:Generator_ColumnPropNameInTable="MAVTColumn" msprop:Generator_ColumnPropNameInRow="MAVT" msprop:Generator_UserColumnName="MAVT" msprop:Generator_ColumnVarNameInTable="columnMAVT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DVT" msprop:Generator_ColumnPropNameInTable="DVTColumn" msprop:Generator_ColumnPropNameInRow="DVT" msprop:Generator_UserColumnName="DVT" msprop:Generator_ColumnVarNameInTable="columnDVT">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DONGIA" msprop:Generator_ColumnPropNameInTable="DONGIAColumn" msprop:Generator_ColumnPropNameInRow="DONGIA" msprop:Generator_UserColumnName="DONGIA" msprop:Generator_ColumnVarNameInTable="columnDONGIA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="THANHTIEN" msprop:Generator_ColumnPropNameInTable="THANHTIENColumn" msprop:Generator_ColumnPropNameInRow="THANHTIEN" msprop:Generator_UserColumnName="THANHTIEN" msprop:Generator_ColumnVarNameInTable="columnTHANHTIEN" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TON" msdata:ReadOnly="true" msprop:Generator_UserColumnName="TON" msprop:Generator_ColumnPropNameInTable="TONColumn" msprop:Generator_ColumnPropNameInRow="TON" msprop:Generator_ColumnVarNameInTable="columnTON" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TONKHODAUKY" />
+      <xs:field xpath="mstns:MAVT" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

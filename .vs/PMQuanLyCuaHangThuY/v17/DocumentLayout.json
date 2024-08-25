@@ -1,0 +1,83 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|c:\\users\\thaib\\source\\repos\\quanlycuahangthuy\\pmquanlycuahangthuy\\view\\formnhomthongtin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|solutionrelative:pmquanlycuahangthuy\\view\\formnhomthongtin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\pmquanlycuahangthuy\\view\\uc_bcdsbh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|solutionrelative:pmquanlycuahangthuy\\view\\uc_bcdsbh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\pmquanlycuahangthuy\\db\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|solutionrelative:pmquanlycuahangthuy\\db\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\pmquanlycuahangthuy\\bl\\bl_baocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DD8232F-0BB4-4384-9A0A-C05A01E41876}|PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY.csproj|solutionrelative:pmquanlycuahangthuy\\bl\\bl_baocao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormNhomThongTin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\View\\FormNhomThongTin.cs",
+              "RelativeDocumentMoniker": "PMQuanLyCuaHangThuY\\View\\FormNhomThongTin.cs",
+              "ToolTip": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\View\\FormNhomThongTin.cs [Design]",
+              "RelativeToolTip": "PMQuanLyCuaHangThuY\\View\\FormNhomThongTin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T10:44:58.244Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UC_BCDSBH.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\View\\UC_BCDSBH.cs",
+              "RelativeDocumentMoniker": "PMQuanLyCuaHangThuY\\View\\UC_BCDSBH.cs",
+              "ToolTip": "C:\\Users\\thaib\\source\\repos\\PhanMemQuanLyBanHang\\PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\View\\UC_BCDSBH.cs [Design]",
+              "RelativeToolTip": "..\\PhanMemQuanLyBanHang\\PMQuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\View\\UC_BCDSBH.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T10:44:56.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BL_BaoCao.cs",
+              "DocumentMoniker": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\BL\\BL_BaoCao.cs",
+              "RelativeDocumentMoniker": "PMQuanLyCuaHangThuY\\BL\\BL_BaoCao.cs",
+              "ToolTip": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\BL\\BL_BaoCao.cs",
+              "RelativeToolTip": "PMQuanLyCuaHangThuY\\BL\\BL_BaoCao.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T10:44:40.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DBConnect.cs",
+              "DocumentMoniker": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\DB\\DBConnect.cs",
+              "RelativeDocumentMoniker": "PMQuanLyCuaHangThuY\\DB\\DBConnect.cs",
+              "ToolTip": "C:\\Users\\thaib\\source\\repos\\QuanLyCuaHangThuY\\PMQuanLyCuaHangThuY\\DB\\DBConnect.cs",
+              "RelativeToolTip": "PMQuanLyCuaHangThuY\\DB\\DBConnect.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAnwBIAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-24T14:29:01.804Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

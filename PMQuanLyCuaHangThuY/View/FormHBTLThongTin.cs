@@ -1,0 +1,302 @@
+﻿using PMQuanLyCuaHangThuY.BL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PMQuanLyCuaHangThuY.View
+{
+    public partial class FormHBTLThongTin : Form
+    {
+        BL_HBTL db = new BL_HBTL();
+        public FormHBTLThongTin()
+        {
+            InitializeComponent();
+        }
+
+        private void FormHBTLThongTin_Load(object sender, EventArgs e)
+        {
+            //HienThiKhachHang("1=0");
+            HienThiVatTu("1=0");
+            HienThiKhachHang(txtTenKHSearch.Text);
+
+
+            if (UC_HBTL.save == true)
+            {
+                txtMaHD.Text = "TL_" + DateTime.Now.ToString("yyyyMMddhhmmss");
+                txtMaNV.Text = FormDangNhap.manv;
+                btnLuu.Text = "Thêm mới hóa đơn";
+                HienThiChiTietHoaDon(txtMaHD.Text);
+            }
+            else
+            {
+                txtMaHD.Text = UC_HBTL.MaHD;
+                DataTable dt = new DataTable();
+                dt = db.ThongTinHoaDonTheoMa(UC_HBTL.MaHD);
+                txtMaKH.Text = dt.Rows[0]["MaKH"].ToString();
+                txtTenKH.Text = dt.Rows[0]["TENKH"].ToString();
+                txtDiaChi.Text = dt.Rows[0]["DIACHI"].ToString();
+                txtDienThoai.Text = dt.Rows[0]["SDT"].ToString();
+                txtMaNV.Text = dt.Rows[0]["MaNV"].ToString();
+                dtNgayBan.Text = dt.Rows[0]["NGAYHD"].ToString();
+                txtDienGiai.Text = dt.Rows[0]["DIENGIAI"].ToString();
+                HienThiChiTietHoaDon(txtMaHD.Text);
+                btnLuu.Text = "Sửa hóa đơn";
+                TongTienHoaDon();
+            }
+        }
+        private void HienThiKhachHang(string value)
+        {
+            dtgvDataKH.DataSource = db.HienThiKhachHang(value);
+            dtgvDataKH.Columns[0].HeaderText = "Mã KH";
+            dtgvDataKH.Columns[1].HeaderText = "Tên KH";
+            dtgvDataKH.Columns[2].HeaderText = "Nhóm";
+            dtgvDataKH.Columns[3].HeaderText = "Ngày sinh";
+            dtgvDataKH.Columns[4].HeaderText = "Giới tính";
+            dtgvDataKH.Columns[5].HeaderText = "Địa chỉ";
+            dtgvDataKH.Columns[6].HeaderText = "Số điện thoại";
+            dtgvDataKH.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataKH.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataKH.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataKH.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataKH.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataKH.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataKH.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            UC_NhanVien.CustomDataGridView(dtgvDataKH);
+        }
+        private void HienThiVatTu(string value)
+        {
+            dtgvDataVT.DataSource = db.HienThiVatTu(value);
+            dtgvDataVT.Columns[0].HeaderText = "Mã VT";
+            dtgvDataVT.Columns[1].HeaderText = "Tên VT";
+            dtgvDataVT.Columns[2].HeaderText = "Nhóm";
+            dtgvDataVT.Columns[3].HeaderText = "Đơn vị tính";
+            dtgvDataVT.Columns[4].HeaderText = "Mô tả";
+            dtgvDataVT.Columns[5].HeaderText = "Khối lượng";
+            dtgvDataVT.Columns[6].HeaderText = "Kích thước";
+            dtgvDataVT.Columns[7].HeaderText = "Đơn giá";
+            dtgvDataVT.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            UC_NhanVien.CustomDataGridView(dtgvDataVT);
+        }
+       
+        
+        
+        private void HienThiVatTuDaMua(string tenVT, string maKH)
+        {
+            dtgvDataVT.DataSource = db.HienThiVatTuDaMua(tenVT, maKH);
+
+            // Thiết lập các header cho các cột
+            dtgvDataVT.Columns[0].HeaderText = "Mã VT";
+            dtgvDataVT.Columns[1].HeaderText = "Tên VT";
+            dtgvDataVT.Columns[2].HeaderText = "Nhóm";
+            dtgvDataVT.Columns[3].HeaderText = "Đơn vị tính";
+            dtgvDataVT.Columns[4].HeaderText = "Mô tả";
+            dtgvDataVT.Columns[5].HeaderText = "Khối lượng";
+            dtgvDataVT.Columns[6].HeaderText = "Kích thước";
+            dtgvDataVT.Columns[7].HeaderText = "Đơn giá";
+
+            // Tự động điều chỉnh kích thước cột
+            dtgvDataVT.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataVT.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+            // Tùy chỉnh giao diện DataGridView (nếu có)
+            UC_NhanVien.CustomDataGridView(dtgvDataVT);
+        }
+
+  
+        private void HienThiChiTietHoaDon(string value)
+        {
+            dtgvDataCTHD.DataSource = db.HienThiCHITIETHOADON(value);
+            dtgvDataCTHD.Columns[0].HeaderText = "Mã HĐ";
+            dtgvDataCTHD.Columns[1].HeaderText = "Mã VT";
+            dtgvDataCTHD.Columns[2].HeaderText = "Tên VT";
+            dtgvDataCTHD.Columns[3].HeaderText = "Đơn giá";
+            dtgvDataCTHD.Columns[4].HeaderText = "Số lượng";
+            dtgvDataCTHD.Columns[5].HeaderText = "Thành tiền";
+            dtgvDataCTHD.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataCTHD.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataCTHD.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataCTHD.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataCTHD.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtgvDataCTHD.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            UC_NhanVien.CustomDataGridView(dtgvDataCTHD);
+        }
+        private void btnTimKH_Click(object sender, EventArgs e)
+        {
+            HienThiKhachHang(txtTenKHSearch.Text);
+        }
+
+        private void btnTimVT_Click(object sender, EventArgs e)
+        {
+            //HienThiVatTu(txtTenVTSearch.Text);
+            HienThiVatTuDaMua(txtTenVTSearch.Text, txtMaKH.Text);
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (txtMaKH.Text == "")
+            {
+                MessageBox.Show("Chưa chọn khách hàng để lập hóa đơn", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMaKH.Focus();
+                return;
+            }
+            if (UC_HBTL.save == true)
+            {
+                db.ThemHoaDon(txtMaHD.Text, txtMaKH.Text, dtNgayBan.Value.ToString("yyyy/MM/dd"), txtMaNV.Text, 0, txtDienGiai.Text);
+                MessageBox.Show("Thêm thành công, hãy tiếp tục thêm vật tư cho hóa đơn ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                btnLuu.Enabled = false;
+                dtgvDataKH.Enabled = false;
+                txtDienGiai.ReadOnly = true;
+                dtNgayBan.Enabled = false;
+            }
+            else
+            {
+                db.SuaHoaDon(txtMaHD.Text, txtMaKH.Text, dtNgayBan.Value.ToString("yyyy/MM/dd"), txtMaNV.Text, txtDienGiai.Text);
+                MessageBox.Show("Sửa thành công ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (db.CheckExitsHoaDon(txtMaHD.Text) == 1)
+            {
+                MessageBox.Show("Hãy lập hóa đơn trước khi lập chi tiết hóa đơn", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (dtgvDataVT.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có vật tư để tạo phiếu", "Thông báo",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DataGridViewRow row = this.dtgvDataVT.Rows[dtgvDataVT.CurrentCell.RowIndex];
+
+            string MaVT = row.Cells[0].Value.ToString();
+            decimal DonGia = decimal.Parse(row.Cells[7].Value.ToString() + "");
+            decimal SoLuong = nmsoluong.Value;
+            decimal ThanhTien = DonGia * SoLuong;
+
+            if (db.CheckExits(txtMaHD.Text, MaVT) == 0)
+            {
+                db.CapNhatSoLuongTienChiTietHoaDon(txtMaHD.Text, MaVT, SoLuong);
+            }
+            else
+            {
+                db.ThemChiTietHoaDon(txtMaHD.Text, MaVT, DonGia, SoLuong, ThanhTien);
+            }
+            HienThiChiTietHoaDon(txtMaHD.Text);
+            TongTienHoaDon();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dtgvDataCTHD.Rows.Count == 0) return;
+            DataGridViewRow row = this.dtgvDataCTHD.Rows[dtgvDataCTHD.CurrentCell.RowIndex];
+            db.XoaChiTietHoaDon(txtMaHD.Text, row.Cells[1].Value.ToString());
+            HienThiChiTietHoaDon(txtMaHD.Text);
+            TongTienHoaDon();
+        }
+        public void TongTienHoaDon()
+        {
+            if (dtgvDataCTHD.Rows.Count == 0)
+            {
+                return;
+            }
+            int tien = dtgvDataCTHD.Rows.Count;
+            decimal thanhtien = 0;
+            for (int i = 0; i < tien; i++)
+            {
+                thanhtien += decimal.Parse(dtgvDataCTHD.Rows[i].Cells["ThanhTien"].Value.ToString());
+            }
+            db.CapNhatTongTienHoaDon(txtMaHD.Text, thanhtien);
+            txtTongTien.Text = thanhtien.ToString("#,###");
+            if (txtTongTien.Text == " VND")
+            {
+                txtTongTien.Text = "0 VND";
+            }
+        }
+        private void dtgvDataKH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dtgvDataKH.Rows[e.RowIndex];
+                txtMaKH.Text = row.Cells[0].Value.ToString();
+                txtTenKH.Text = row.Cells[1].Value.ToString();
+                txtDienThoai.Text = row.Cells[6].Value.ToString();
+                txtDiaChi.Text = row.Cells[5].Value.ToString();
+            }
+        }
+
+        private void FormHBTLThongTin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            db.XoaHoaDonKhongTonTaiTrongChiTietHoaDon();
+        }
+
+        private void dtgvDataVT_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            if (dtgvDataCTHD.Rows.Count == 0)
+            {
+                return;
+            }
+            try
+            {
+                DialogResult ok = new DialogResult();
+                ok = MessageBox.Show("Bạn có muốn tính tiền cho hóa đơn này Không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (ok == DialogResult.Yes)
+                {
+                    MessageBox.Show("TỔNG SỐ TIỀN THANH TOÁN LÀ " + txtTongTien.Text, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    db.UpdateTrangThaiSauThanhToan(txtMaHD.Text);
+                    this.Close();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch { MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+        }
+
+        private void txtMaKH_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgvDataKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
+}
